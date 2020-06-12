@@ -10,11 +10,16 @@
   import ProductTemplate from "./pages/product-template.svelte";
   // components
   import Navbar from "./components/navbar/navbar.svelte";
+  import Sidebar from "./components/navbar/sidebar.svelte";
+
+  import globalStore from "./stores/global-store";
 </script>
 
 <Router>
   <Navbar />
-
+  {#if $globalStore.sidebar}
+    <Sidebar />
+  {/if}
   <div>
     <Route path="/" component={Home} />
     <Route path="/about" component={About} />
