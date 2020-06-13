@@ -1,11 +1,12 @@
 <script>
+  import { fly, fade } from "svelte/transition";
   import { link } from "svelte-routing";
   import links from "../../constants/links";
   import globalStore from "../../stores/global-store";
 </script>
 
-<div class="sidebar-container">
-  <div class="sidebar">
+<div class="sidebar-container" transition:fly={{ x: -1000 }}>
+  <div class="sidebar" transition:fade={{ delay: 200 }}>
     <div class="sidebar-header">
       <button
         class="btn-close"
