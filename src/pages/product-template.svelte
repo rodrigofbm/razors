@@ -3,6 +3,7 @@
   // global store
   import products, { getProductById } from "../stores/default-products";
   import globalStore from "../stores/global-store";
+  import { addToCart } from "../stores/cart";
   import Loading from "../components/loading.svelte";
   // variables
   export let id;
@@ -27,7 +28,10 @@
         <p>{product.description}</p>
         <button
           class="btn btn-primary btn-block"
-          on:click={() => globalStore.toggleItem('cart', true)}>
+          on:click={() => {
+            globalStore.toggleItem('cart', true);
+            addToCart(product);
+          }}>
           add to cart
         </button>
       </article>

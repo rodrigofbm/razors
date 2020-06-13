@@ -41,13 +41,28 @@ export const increaseAmount = (id) => {
 export const decreaseAmount = (id, amount) => {
   cart.update((cartItems) => {
     let cart;
-    if (amount <= 1) {
-      cart = remove(id, cartItems);
+
+    if (amount <= 1) cart = remove(id, cartItems);
+    else cart = toggleAmount(id, cartItems, "dec");
+
+    return cart;
+  });
+};
+
+export const addToCart = (product) => {
+  cart.update((cartItems) => {
+    const { id } = product;
+    const item = cartItems.find((item) => item.id === id);
+    let cart;
+
+    if (item) {
+      cart = toggleAmount(id, cartItems, "inc");
     } else {
-      cart = toggleAmount(id, cartItems, "dec");
+      let newItem = { ...product, amount: 1 };
+      cart = [newItem, ...cartItems];
     }
 
-    return [...cart];
+    return cart;
   });
 };
 // localStorage
