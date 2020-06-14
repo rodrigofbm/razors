@@ -3,6 +3,7 @@
   import links from "../../constants/links";
   // components
   import CartButton from "../cart/cart-button.svelte";
+  import LoginLink from "../login-link.svelte";
 </script>
 
 <nav class="navbar">
@@ -18,6 +19,7 @@
       <img src="/assets/images/logo.svg" class="logo" alt="logo" />
     </a>
     <div class="nav-aside">
+      <LoginLink />
       <CartButton />
     </div>
   </div>

@@ -3,6 +3,7 @@
   import { link } from "svelte-routing";
   import links from "../../constants/links";
   import globalStore from "../../stores/global-store";
+  import LoginLink from "../login-link.svelte";
 </script>
 
 <div class="sidebar-container" transition:fly={{ x: -1000 }}>
@@ -24,10 +25,13 @@
             href={sideLink.url}
             use:link
             on:click={() => globalStore.toggleItem('sidebar', false)}>
-            >{sideLink.text}
+            {sideLink.text}
           </a>
         </li>
       {/each}
+      <li>
+        <LoginLink />
+      </li>
     </ul>
   </div>
 </div>

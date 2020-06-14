@@ -1,11 +1,14 @@
 <script>
   // svelte
+  import { afterUpdate } from "svelte";
   import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
   // components
   import CartItem from "./cart-item.svelte";
   // stores
-  import cart, { cartTotalPrice } from "../../stores/cart";
+  import cart, { cartTotalPrice, setStorageCart } from "../../stores/cart";
+
+  afterUpdate(() => setStorageCart($cart));
 </script>
 
 <section class="cart-items">
