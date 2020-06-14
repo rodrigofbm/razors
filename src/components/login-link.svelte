@@ -1,6 +1,6 @@
 <script>
   import { link } from "svelte-routing";
-  import user from "../stores/user";
+  import user, { logoutUser } from "../stores/user";
   import globalStore from "../stores/global-store";
   // loggout func
 </script>
@@ -12,6 +12,7 @@
     use:link
     on:click={() => {
       globalStore.toggleItem('sidebar', false);
+      logoutUser();
     }}>
     logout
   </a>
