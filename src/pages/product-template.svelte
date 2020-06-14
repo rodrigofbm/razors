@@ -1,7 +1,7 @@
 <script>
   import { link } from "svelte-routing";
   // global store
-  import products, { getProductById } from "../stores/default-products";
+  import products, { getProductById } from "../stores/products";
   import globalStore from "../stores/global-store";
   import { addToCart } from "../stores/cart";
   import Loading from "../components/loading.svelte";
@@ -10,9 +10,6 @@
   $: product = $products.find(p => p.id === parseInt(id));
 </script>
 
-<svelte:head>
-  <title>{product.title}</title>
-</svelte:head>
 {#if !product}
   <Loading />
 {:else}
