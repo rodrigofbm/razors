@@ -22,7 +22,7 @@ async function setProducts() {
 //update
 
 function flattenProducts(data) {
-  return data.map((item) => ({ ...item, image: `${URL}${item.image.url}` }));
+  return data.map((item) => ({ ...item, image: item.image.url }));
 }
 
 export const featuredStore = derived(store, ($products) =>

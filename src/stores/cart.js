@@ -7,7 +7,13 @@ export const cartTotalItems = derived(cart, ($items) => {
 });
 
 export const cartTotalPrice = derived(cart, ($items) => {
-  return $items.reduce((acc, curr) => (acc += curr.amount * curr.price), 0);
+  let total = $items.reduce(
+    (acc, curr) => (acc += curr.amount * curr.price),
+    0
+  );
+  total = parseFloat(total.toFixed(2));
+
+  return total;
 });
 
 // local functions
